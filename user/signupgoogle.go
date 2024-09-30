@@ -34,7 +34,7 @@ func HandleGoogleLogin(c *gin.Context) {
 	fmt.Println("clientid:", clientid)
 	fmt.Println("clientsecret:", clientsecret)
 	googleOauthConfig = &oauth2.Config{
-		RedirectURL: "http://localhost:8080/auth/google/callback",
+		RedirectURL: "https://themobilehubs.xyz/auth/google/callback",
 		//ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
 		//ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
 		ClientID:     clientid,
