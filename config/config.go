@@ -12,7 +12,7 @@ var DB *gorm.DB
 
 func Initialize() {
 	var err error
-	dsn := "postgres://postgres:manu123@localhost:5432/mobilehub"
+	dsn := "postgres://mobilehubawsdb:mobilehubawsdb@mobilehubawsdb.crc2mmq6agnb.ap-south-1.rds.amazonaws.com:5432/mobilehub"
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		fmt.Println("connection failed due to ", err)
