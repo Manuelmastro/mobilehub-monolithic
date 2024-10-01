@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
@@ -24,12 +23,14 @@ type GoogleResponse struct {
 var googleOauthConfig *oauth2.Config
 var oauthStateString = "random" // Replace with a random string
 
-var (
-	clientid     = os.Getenv("GOOGLE_CLIENT_ID")
-	clientsecret = os.Getenv("GOOGLE_CLIENT_SECRET")
-)
+// var (
+// 	clientid     = os.Getenv("GOOGLE_CLIENT_ID")
+// 	clientsecret = os.Getenv("GOOGLE_CLIENT_SECRET")
+// )
 
 func HandleGoogleLogin(c *gin.Context) {
+	clientid := "111660702263-4td8b5eugnhr3jvfias1c04p7lsrmc2s.apps.googleusercontent.com"
+	clientsecret := "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"
 
 	fmt.Println("clientid:", clientid)
 	fmt.Println("clientsecret:", clientsecret)
