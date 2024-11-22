@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-api
+spec:
+  replicas: 1  # Only one instance as you specified
+  selector:
+    matchLabels:
+      app: ecommerce-api
+  template:
+    metadata:
+      labels:
+        app: ecommerce-api
+    spec:
+      containers:
+      - name: ecommerce-api
+        image: abhimanyu1014/abhimanyu:tag  # Replace with your actual tag
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOST
+          value: "postgres"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_USER
+          value: "yourusername"  # Replace with your actual DB username
+        - name: DB_PASSWORD
+          value: "yourpassword"  # Replace with your actual DB password
+        - name: DB_NAME
+          value: "yourdatabase"  # Replace with your actual DB name
+        command: ["wait-for-postgres.sh", "./main"]  # Adjust to run the application after waiting for PostgreSQL
